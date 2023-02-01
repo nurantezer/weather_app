@@ -67,6 +67,7 @@ const getWeatherDataFromApi = async() => {
       list.prepend(createdLi); //*son aradığım başta olsun   append
     } catch (error) {
     msgSpan.innerText = "city not found" 
+    setTimeout(() => {msgSpan.innerText = ""},5000);
     }
     
 }
