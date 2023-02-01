@@ -28,7 +28,7 @@ const getWeatherDataFromApi = async() => {
 
     //*http request url(endpoint)
     try {
-    const url = `http`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}&lang=${lang}`;
     const response = await fetch(url).then(response => response.json())
     
     const {main,name,sys,weather} = response;
