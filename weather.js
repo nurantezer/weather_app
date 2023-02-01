@@ -65,6 +65,16 @@ const getWeatherDataFromApi = async() => {
           <figcaption>${weather[0].description}</figcaption>
         </figure>`;
       list.prepend(createdLi); //*son aradığım başta olsun   append
+
+      //*Capturing => parentten childa
+      list.addEventListener("click", (e) =>{
+        alert("list clicked")
+      })
+      //*Bubbling => childtan parenta mesela trendyol sayfasında karta tıkladığımda ürün sayfasına gidiyorum
+      createdLi.addEventListener("click", (e) =>{
+        alert(e.target.tagName + "element clicked");
+        window.location.href = `https://openweathermap.org/find?q=${name}`
+      })
     } catch (error) {
     msgSpan.innerText = "city not found" 
     setTimeout(() => {msgSpan.innerText = ""},5000);
