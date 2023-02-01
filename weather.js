@@ -48,6 +48,7 @@ const getWeatherDataFromApi = async() => {
         //*cityName değil apiden gelen ${name} değerini aldım lowercase falan girmeme gerek kalmadı
         if (filteredArray.length > 0) {
           msgSpan.innerText = `You already know the weather for ${name}, Please search for another city 😉`;
+          setTimeout(() => {msgSpan.innerText = ""},5000)
           return;   //*yoksa yine oluşturmaya devam edecek
         }
       }
