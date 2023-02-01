@@ -1,4 +1,4 @@
-// eea709b04bc7826e788731cd10857574;
+
 const form = document.querySelector("form");
 const input = document.querySelector("form input");
 const msgSpan = form.querySelector(".msg");
