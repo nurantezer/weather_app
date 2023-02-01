@@ -9,8 +9,10 @@ localStorage.setItem(
   "apiKey",
   EncryptStringAES("eea709b04bc7826e788731cd10857574")
 );
-//*göndermek için buttonun type submit olmalı
+
+//*Formdaki verileri göndermek için buttonun type submit olmalı
 //*Bir butona kaç şekilde click tanımlanır. inline, onclick,addEventListener,setAttribute("submit",submitFunc) 
+
 form.addEventListener("submit", (e) =>{
     e.preventDefault();
     getWeatherDataFromApi();
