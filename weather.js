@@ -39,14 +39,16 @@ const getWeatherDataFromApi = async() => {
       const iconUrl = `http://openweathermap.org/img/wn/{weather[0].icon@2x.png`;
       const iconUrlAWS = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${weather[0].icon}.svg`;
 
-      const cityNameSpans = list.querySelectorAll("span");
+      const cityNameSpans = list.querySelectorAll("span");  //*map kullanılabilirdi include contains de olabilir
+      //*filter,map,reduce,forEach ==> array
+      //*forEach => nodeList
+      //*ifler sistemi yormamak için
       if (cityNameSpans.length > 0) {
-        const filteredArray = [...cityNameSpans].filter(
-          (span) => span.innerHTML == cityName
-        );
+        const filteredArray = [...cityNameSpans].filter(span => span.innerHTML == name); //*arraya çevirdim; burada
+        //*cityName değil apiden gelen ${name} değerini aldım lowercase falan girmeme gerek kalmadı
         if (filteredArray.length > 0) {
-          msgSpan.innerText = `uyarı${name}`;
-          return;
+          msgSpan.innerText = `You already know the weather for ${name}, Please search for another city 😉`;
+          return;   //*yoksa yine oluşturmaya devam edecek
         }
       }
       const createdLi = document.createElement("li");  //*genelde dışdaki elementler creat edilir.Best practic
@@ -61,7 +63,7 @@ const getWeatherDataFromApi = async() => {
           <img class="city-icon" src="${iconUrlAWS}">
           <figcaption>${weather[0].description}</figcaption>
         </figure>`;
-      list.prepend(createdLi); //*son aradığım başta olsun
+      list.prepend(createdLi); //*son aradığım başta olsun   append
     } catch (error) {
     msgSpan.innerText = "city not found" 
     }
